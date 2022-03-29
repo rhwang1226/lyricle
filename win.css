@@ -1,0 +1,33 @@
+#win{
+  color:green;
+  font-family: Lato;
+  font-size:150px;
+  text-align: center;
+}
+
+#answer {
+  margin:auto;
+  text-align:center;
+  width:600px;
+  font-size:50px;
+  background-color: #2cde53;
+}
+
+#icon {
+  width: 30%;
+  height: auto;
+}
+
+#artist {
+  font-size:36px;
+}
+
+#timer {
+  font-family: Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+  margin:auto;
+  text-align:center;
+  width:400px;
+  border:3px solid black;
+  font-size:36px;
+  text-align: center;
+}

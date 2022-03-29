@@ -1,0 +1,55 @@
+#logo {
+  text-align: center;
+  font-size: 80px;
+  color: black;
+  font-family: Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+}
+
+#quote-box {
+  border:3px solid black;
+  width: 600px;
+  height: 250px;
+  font-size:20px;
+  text-align: left;
+  position: absolute;
+  left: 20px;
+}
+
+#nextBtn {
+  border:3px solid black;
+  width: 600px;
+  height: 50px;
+  font-size: 24px;
+  text-align: left;
+  position: absolute;
+  left: 20px;
+  top: 400px;
+}
+
+#guessBtn {
+  border:3px solid black;
+  width: 600px;
+  height: 50px;
+  font-size: 24px;
+  text-align: left;
+  position: absolute;
+  left: 650px;
+  top: 200px;
+}
+
+#timer {
+  font-family: Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+  position: absolute;
+  font-family: Lato;
+  left: 650px;
+  top:320px;
+  font-size:40px;
+}
+
+#fname {
+  position: absolute;
+  left: 650px;
+  width: 600px;
+  font-family: Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:30px;
+}

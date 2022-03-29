@@ -1,0 +1,14 @@
+#logo {
+  text-align: center;
+  font-size: 200px;
+  font-family: Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+}
+
+.btnDiv {
+  text-align: center;
+}
+
+.btns {
+  font-size:48px;
+  width: 400px;
+}
