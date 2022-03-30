@@ -28,7 +28,7 @@ function startFunc() {
 nextBtn.addEventListener("click", startFunc);
 
 function guessFunc() {
-  if (document.getElementById("fname").value.toLowerCase() == "she's gone") {
+  if (document.getElementById("fname").value.toLowerCase() == "heartbreak anniversary") {
     window.location.href = "win.html";
   }
   else {
