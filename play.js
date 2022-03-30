@@ -1,8 +1,7 @@
 var nextBtn = document.getElementById("nextBtn");
 
 
-array = ["All my dreams are lost","I'm wasting away","Forgive me, girl","Lady, won't you save me?","My heart belongs to you","Lady, can you forgive me?"]
-
+array = ["But that'll last for never","It's cold outside","Like when you walked out my life","Why you walk out my life?","I get like this every time","On these days that feel like you and me"]
 var index = 1; 
 
 let node = document.createElement("div");
