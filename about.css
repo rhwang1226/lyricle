@@ -1,0 +1,15 @@
+h1 {
+  text-align:center;
+  width: 1200px;
+  margin:auto;
+  font-family: Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size: 36px;
+}
+
+p {
+  width: 1200px;
+  margin:auto;
+  text-align:center;
+  font-family: Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size: 26px;
+}

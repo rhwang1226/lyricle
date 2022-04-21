@@ -7,6 +7,7 @@
     <title>Lyricle</title>
     <link href="play.css" rel="stylesheet" type="text/css" />
   </head>
+  
   <body>
     <div id="logo">
       <a href="index.html">
@@ -16,15 +17,23 @@
       
     </div>
     <button id="nextBtn">Next Line (Skip Guess)</button>
-    <input type="text" id="fname" name="fname">
+    <p id="hint"></p>
+
+    
+    <input id="fname" type="text" name="fname">
+    <ul class="list-group" id="result">
+      <li class="list-group-item searchitem" id="item1">An item</li>
+      <li class="list-group-item searchitem" id="item2">A second item</li>
+      <li class="list-group-item searchitem" id="item3">A third item</li>
+      <li class="list-group-item searchitem" id="item4">A fourth item</li>
+      <li class="list-group-item searchitem" id="item5">A fifth item</li>
+    </ul>
+    
     <button id="guessBtn">Guess</button>
     <div id="timer">
       <p id=demoLbl>New Lyricle In</p>
       <p id="demo"></p>
     </div>
-    <audio autoplay="autoplay">
-      <source src="chill.mp3"/>     
-     </audio>
     <script src="play.js"></script>
   </body>
 </html>

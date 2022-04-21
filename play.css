@@ -1,5 +1,6 @@
 #logo {
-  text-align: center;
+  position: absolute;
+  left: 15px;
   font-size: 80px;
   color: black;
   font-family: Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
@@ -13,6 +14,7 @@
   text-align: left;
   position: absolute;
   left: 20px;
+  top: 120px;
 }
 
 #nextBtn {
@@ -34,22 +36,41 @@
   text-align: left;
   position: absolute;
   left: 650px;
-  top: 200px;
+  top: 400px;
 }
 
 #timer {
   font-family: Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
   position: absolute;
   font-family: Lato;
-  left: 650px;
-  top:320px;
-  font-size:40px;
+  left: 400px;
+  top:10px;
+  font-size:28px;
+}
+
+#hint {
+  font-weight: bold;
+  font-size: 24px;
+  text-align: left;
+  position: absolute;
+  left: 20px;
+  top: 450px;
 }
 
 #fname {
   position: absolute;
   left: 650px;
+  top:15px;
   width: 600px;
   font-family: Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
-  font-size:30px;
+  font-size:24px;
+}
+
+#result {
+  position: absolute;
+  left: 650px;
+  width: 600px;
+  font-family: Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+  top:60px;
+  font-size:18px;
 }

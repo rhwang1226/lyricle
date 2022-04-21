@@ -1,7 +1,11 @@
 var start = document.getElementById("start");
 var about = document.getElementById("about");
+
 function startFunc() {
-  window.location.href = "play.html";
+  //if (localStorage.getItem('score') == "null")
+    window.location.href = "play.html";
+  //else
+    //window.location.href = "win.html";
 }
 
 function aboutFunc() {

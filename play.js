@@ -1,6 +1,10 @@
+const api = "https://api.lyrics.ovh";
+
+//-----------------------------------------------------------------------------
 var nextBtn = document.getElementById("nextBtn");
 
-array = ["But that'll last for never","It's cold outside","Like when you walked out my life","Why you walk out my life?","I get like this every time","On these days that feel like you and me"]
+array = ["When you call me on the phone","Girl, I refuse","You must have me confused","With some other guy","The bridges were burned","Now it's your turn, to cry"]
+
 var index = 1; 
 
 let node = document.createElement("div");
@@ -17,6 +21,9 @@ function startFunc() {
   }
   if (index <= 5)
     index++;
+
+  if (index == 4)
+    document.getElementById("hint").innerHTML = "HINT: Song title is four words";
   
   if (index > 5) {
     document.getElementById("nextBtn").disabled = true;
@@ -26,10 +33,13 @@ function startFunc() {
 nextBtn.addEventListener("click", startFunc);
 
 function guessFunc() {
-  if (document.getElementById("fname").value.toLowerCase() == "heartbreak anniversary") {
+  if (document.getElementById("fname").value == "Cry Me a River - Justin Timberlake") {
+    localStorage.setItem('score', index);
     window.location.href = "win.html";
   }
   else {
+    if (index == 3)
+      document.getElementById("hint").innerHTML = "HINT: Song title is four words";
     if (index < 6) {
       let node = document.createElement("div");
       let textnode = document.createTextNode(array[index]);
@@ -39,13 +49,30 @@ function guessFunc() {
     if (index < 6)
       index++;
     else {
-      window.location.href = "loss.html";
+		localStorage.setItem('score', index);
+		window.location.href = "loss.html";
     }
   }
 }
+var today = new Date();
+var tomorrow = new Date(today);
+tomorrow.setDate(tomorrow.getDate() +1)
 
-// Set the date we're counting down to
-var countDownDate = new Date("Mar 30, 2022 00:00:00").getTime();
+const month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+var dd = String(today.getDate()).padStart(2, '0');
+var yyyy = today.getFullYear();
+var mm = month[today.getMonth()];
+
+var d2 = String(tomorrow.getDate()).padStart(2, '0');
+var y2 = tomorrow.getFullYear();
+var m2 = month[tomorrow.getMonth()];
+
+today = mm + " " + dd + ", " + yyyy + " 23:59:59"
+tomorrow = m2 + " " + d2 + ", " + y2 + " 23:59:59"
+
+var countDownDate = new Date(today).getTime();
+
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -68,9 +95,39 @@ var x = setInterval(function() {
 
   // If the count down is finished, write some text
   if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
+    localStorage.setItem('score',null)
+    countDownDate = new Date(tomorrow).getTime();
   }
 }, 1000);
 
-guessBtn.addEventListener("click", guessFunc)
+guessBtn.addEventListener("click", guessFunc);
+
+async function getResult() {
+  var input = document.getElementById("fname").value;
+  if (input.length < 1) {
+    input = "poker face";
+  }
+  const searchResult = await fetch (`${api}/suggest/${input}`);
+  const links= await searchResult.json();
+  var songTitles = links.data.map(song => song.title_short);
+  var artistNames = links.data.map(song => song.artist.name);
+  var terms = [];
+  for (i = 0; i < 5; i++) {
+    let str = songTitles[i] + " - " + artistNames[i];
+    terms.push(str);
+  }
+  for (i=0; i<5; i++) {
+    document.getElementById("item" + (i+1).toString()).innerText = terms[i];
+  }
+}
+getResult("a");
+
+document.getElementById("fname").addEventListener("keydown", getResult)
+
+function itemChoice() {
+  document.getElementById("fname").value = this.innerText;
+}
+
+for (i = 0; i < 5; i++) {
+  document.getElementById("item" + (i+1).toString()).addEventListener("click", itemChoice)
+}

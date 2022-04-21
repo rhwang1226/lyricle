@@ -1,5 +1,23 @@
 // Set the date we're counting down to
-var countDownDate = new Date("Mar 30, 2022 00:00:00").getTime();
+var today = new Date();
+var tomorrow = new Date(today);
+tomorrow.setDate(tomorrow.getDate() +1)
+
+const month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+var dd = String(today.getDate()).padStart(2, '0');
+var yyyy = today.getFullYear();
+var mm = month[today.getMonth()];
+
+var d2 = String(tomorrow.getDate()).padStart(2, '0');
+var y2 = tomorrow.getFullYear();
+var m2 = month[tomorrow.getMonth()];
+
+today = mm + " " + dd + ", " + yyyy + " 23:59:59"
+tomorrow = m2 + " " + d2 + ", " + y2 + " 23:59:59"
+
+var countDownDate = new Date(today).getTime();
+
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -22,7 +40,7 @@ var x = setInterval(function() {
 
   // If the count down is finished, write some text
   if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
+    localStorage.setItem('score',null)
+    countDownDate = new Date(tomorrow).getTime();
   }
 }, 1000);
